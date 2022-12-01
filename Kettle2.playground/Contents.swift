@@ -36,8 +36,8 @@ class Alarm {
 
     @objc func countup() {
         waterTemperature += 10
-        print("カウントは\(waterTemperature)度です")
-        if limit <= count {
+        print("温度は\(waterTemperature)度です")
+        if waterTemperature >= 100 {
             print("(100度になったので動作を止める)")
             timer?.invalidate()
         }
