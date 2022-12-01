@@ -13,7 +13,8 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 var waterTemperature: Int = 20 //0<x<=100度
 var waterAmount: Int = 0 //0<y<=1200 ml
 
-class Alarm {
+class Kettle {
+    
     var timer: Timer?
     
     func start() {
@@ -43,3 +44,7 @@ class Alarm {
         }
     }
 }
+
+let kettle = Kettle()
+waterAmount = 200
+kettle.start()
