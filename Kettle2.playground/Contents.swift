@@ -9,25 +9,21 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 //水温が100度になったらタイマーが止まる
 //水量によってかかる時間が変わる。
 
+
+var waterTemperature: Int = 20 //0<x<=100度
+var waterAmount: Int = 0 //0<y<=1200 ml
+
 class Alarm {
     var timer: Timer?
-    var count: Int = 0
-    var limit: Int = 5
-    
     func start() {
-        timer = Timer.scheduledTimer(
-            timeInterval: 1,
-            target: self,
-            selector: #selector(countup),
-            userInfo: nil,
-            repeats: true )
+        timer = Timer.scheduledTimer(timeInterval: 1,target: self,selector: #selector(countup),userInfo: nil,repeats: true )
     }
 
     @objc func countup() {
-        count += 1
-        print("カウントは\(count)です")
+        waterTemperature += 10
+        print("カウントは\(waterTemperature)度です")
         if limit <= count {
-            print("ジリリリリ！(カウントをストップします)")
+            print("(100度になったので動作を止める)")
             timer?.invalidate()
         }
     }
